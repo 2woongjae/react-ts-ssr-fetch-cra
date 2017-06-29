@@ -29,12 +29,13 @@ staticFiles.forEach(file => {
     });
 });
 
-app.get('*', (req, res) => {
+app.get('*', async (req, res) => {
     const html = path.join(__dirname, '../build/index.html');
     const htmlData = fs.readFileSync(html).toString();
 
-    const ReactApp = ReactDOMServer.renderToString(React.createElement(App));
-    const renderedHtml = htmlData.replace('{{SSR}}', ReactApp);
+    const user = await App.getInitialState(); 
+    const ReactApp = ReactDOMServer.renderToString(React.createElement(App, {user}));
+    const renderedHtml = htmlData.replace('<div id="root">{{SSR}}</div>', `<div id="root">${ReactApp}</div><script id="initial-data" type="text/plain" data-json="${user}"></script>`);
     res.status(200).send(renderedHtml);
 });
 

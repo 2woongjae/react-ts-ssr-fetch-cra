@@ -8,9 +8,11 @@
     "@types/node": "^8.0.5",
     "@types/react": "^15.0.33",
     "@types/react-dom": "^15.5.1",
+    "@types/superagent": "^3.5.1",
     "express": "^4.15.3",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "react-scripts-ts": "2.3.2",
