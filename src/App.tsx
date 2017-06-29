@@ -32,7 +32,6 @@ class App extends React.Component<AppProps, AppState> {
   componentWillUnmount() {
     console.log('App componentWillUnmount');
   }
-
   render() {
     console.log('App render');
   
